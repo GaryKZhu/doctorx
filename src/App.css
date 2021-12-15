@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 .App {
   text-align: center;
 }
-
+html {
+  height:101%
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -20,14 +24,99 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(12px + 2vmin);
+  color: white;
+  text-align: center;
+}
+.header {
+  padding-bottom: 10px; 
+  background: #000;
+  color: #f1f1f1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-family: "Bebas Neue"; 
+  z-index:100; 
+}
+.header::after{
+  content: '';
+  display: table; 
+  clear: both;
+}
+body {
+  background-color: white;
+}
+#title{
+  float: left; 
+  padding-left: 50px;
+  padding-top: 15px;  
+  color: White;
+  font-family: "Bebas Neue"; 
+  padding-right: 1px;
+}
+#title a {
+  color: white; 
+  text-decoration: none!important;
+}
+#nav {
+  float: right;
+  font-family: "Bebas Neue"; 
+}
+#nav ul {
+  margin: 0; 
+  padding: 0;
+  list-style: none; 
+}
+#nav li {
+  display: inline-block;
+  position:relative;
+  padding-top: 34px;
+  margin-left: 20px;
+  padding-right: 100px;
+}
+#nav ul li a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px; 
+  font-family: "Open Sans"; 
+}
+#nav a:hover {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+#nav a::before {
+  content: '';
+  display: block;
+  top: -100;
+  height: 2px; 
+  width: 0%;
+  background-color: white; 
+  transition: all ease-in-out 250ms;
+}
+#nav a:hover::before{
+  width: 100%; 
+}
+.tab-list {  border-bottom: 1px solid #ccc;
+  padding-left: 0;
 }
 
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+:local h1 {
+  display: block;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+}
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0px 1px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +125,4 @@
     transform: rotate(360deg);
   }
 }
+
