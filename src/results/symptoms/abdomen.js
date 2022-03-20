@@ -69,7 +69,7 @@ export default function SelectSymptoms(props) {
           break; 
         }
       }
-      if(!found) props.setStep(46); 
+      if(!found) props.setStep(47); 
     }
   }
 
@@ -143,7 +143,7 @@ export default function SelectSymptoms(props) {
               control={
                 <Checkbox checked={selected[1]} onChange={handleSelected} />
               }
-              label="Stomach Ache" name="1"
+              label="Abdominal Pain" name="1"
             />
             <RadioGroup className={selected[1] == 0 ? classes.visuallyHidden : ''} row name="1">
               <FormControlLabel value="1" onChange={handleVectorChange(1, "abdomen")} control={<Radio checked={selected[1] == 0 ? false : (props.values.abdomen[1] == 1)} />} label="1" />

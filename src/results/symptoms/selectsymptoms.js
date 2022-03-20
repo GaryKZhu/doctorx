@@ -12,6 +12,7 @@ import { Typography, Button } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel'
+import { useFetch } from '../FetchData'; 
 export default function SelectSymptoms(props) {
     const useStyles = makeStyles((theme) => ({
       root: {
@@ -77,18 +78,8 @@ export default function SelectSymptoms(props) {
       e.preventDefault();
       props.prevStep();
   }
-
-  const users = [
-    {
-        "name": "Jane",
-        "userid": 1,
-    },
-
-    {
-        "name": "John",
-        "userid": 2,
-    },
-  ]; 
+  var res = useFetch('http://localhost:9000/api/v1/user', {});
+  var users = res.response
   const classes = useStyles(); 
   return (
     <MuiThemeProvider>
@@ -104,11 +95,12 @@ export default function SelectSymptoms(props) {
               onChange = {handleStateChange('userid')} 
               defaultValue = {values.userid}
           >
-              {users.map((row, index) => {
+              { users.length > 0 ? 
+                users.map((row, index) => {
                   return (
                       <MenuItem key={index} value={row.userid}>{row.name}</MenuItem>
                   ); 
-              })}
+              }) : <MenuItem></MenuItem> }
           </Select>
         </FormControl>
       </Box>
@@ -152,6 +144,12 @@ export default function SelectSymptoms(props) {
                 <Checkbox checked={chosen[4]} onChange={handleChange(4, "limbs")} />
               }
               label="Limbs"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox checked={chosen[5]} onChange={handleChange(5, "other")} />
+              }
+              label="Other Metrics"
             />
           </FormGroup>
         </FormControl>

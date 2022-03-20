@@ -56,7 +56,7 @@ export default function SelectSymptoms(props) {
   const error = chosen.filter((v) => v).length == 0;
   const next = (e) => {
     e.preventDefault(); 
-    props.setStep(47); 
+    props.setStep(48); 
   }
 
   const back = (e) => {

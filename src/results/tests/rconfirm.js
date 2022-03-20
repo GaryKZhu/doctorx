@@ -53,44 +53,14 @@ export default function RConfirm(props) {
                 </Typography>
             </Box>
 
-            <br/>
-            <br/>
-        
-            <Box p="1rem" display="flex" justifyContent="center" alignItems="center">
-                <List justifyContent = "center">
-                    <ListItem justifyContent = "center" >
-                        <ListItemText
-                            primary="User ID"
-                            secondary={ values.userid }
-                        />
-                    </ListItem>
-                    <ListItem justifyContent = "center" >
-                        <ListItemText
-                            primary="Date"
-                            secondary={ values.date }
-                        />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText
-                            primary="Organization"
-                            secondary={ values.organization }
-                        />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText
-                            primary="Section"
-                            secondary={ values.section }
-                        />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText
-                            primary="Status"
-                            secondary={ values.status }
-                        />
-                    </ListItem>
-                </List>
+            <Box>
+                <Typography variant="h6" color="secondary" align="center">
+                    Are you sure you want to submit?
+                </Typography>
             </Box>
 
+            <br/>
+            <br/>
             <Box display = "flex" justifyContent="center" > 
                 <Button variant="contained" color="secondary" onClick = {back}>
                     Back    

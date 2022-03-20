@@ -46,17 +46,18 @@ export default function HDetails1(props) {
             </Box>
             <br/>
             <br/>
+
             <Box display="flex" justifyContent="center" alignItems="center"  >
                 <TextField
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Sedimentation_rate"
-                    helperText = "mm/hr"
-                    placeholder = "Enter Sedimentation Rate"
+                    label = "Neutrophils"
+                    helperText = "x10E9/L"
+                    placeholder = "Enter Neutrophil Count"
                     color = "primary"
-                    onChange={handleChange('sedimentation_rate')}
-                    defaultValue = {props.values.sedimentation_rate}
+                    onChange={handleChange('neutrophils')}
+                    defaultValue = {props.values.neutrophils}
                 />
             </Box>
 
@@ -68,48 +69,48 @@ export default function HDetails1(props) {
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Hemoglobin"
-                    helperText = "g/L"
-                    placeholder = "Enter Hemoglobin"
-                    color = "primary"
-                    onChange={handleChange('hemoglobin')}
-                    defaultValue = {props.values.hemoglobin}
-                />
-            </Box>
-
-
-            <br/>
-            <br/>
-
-            <Box display="flex" justifyContent="center" alignItems="center"  >
-                <TextField
-                    required
-                    inputProps={{min: 0, style: { textAlign: 'center' }}}
-                    variant = "outlined"
-                    label = "Hematocrit"
-                    helperText = "L/L"
-                    placeholder = "Enter Hematocrit"
-                    color = "primary"
-                    onChange={handleChange('hematocrit')}
-                    defaultValue = {props.values.hematocrit}
-                />
-            </Box>
-
-
-            <br/>
-            <br/>
-
-            <Box display="flex" justifyContent="center" alignItems="center"  >
-                <TextField
-                    required
-                    inputProps={{min: 0, style: { textAlign: 'center' }}}
-                    variant = "outlined"
-                    label = "White Blood Cell Count"
+                    label = "Lymphocytes"
                     helperText = "x10E9/L"
-                    placeholder = "Enter White Blood Cell Count"
+                    placeholder = "Enter Lymphocyte Count"
                     color = "primary"
-                    onChange={handleChange('wbcc')}
-                    defaultValue = {props.values.wbcc}
+                    onChange={handleChange('lymphocytes')}
+                    defaultValue = {props.values.lymphocytes}
+                />
+            </Box>
+
+
+            <br/>
+            <br/>
+
+            <Box display="flex" justifyContent="center" alignItems="center"  >
+                <TextField
+                    required
+                    inputProps={{min: 0, style: { textAlign: 'center' }}}
+                    variant = "outlined"
+                    label = "Monocytes"
+                    helperText = "x10E9/L"
+                    placeholder = "Enter Monocyte Count"
+                    color = "primary"
+                    onChange={handleChange('monocytes')}
+                    defaultValue = {props.values.monocytes}
+                />
+            </Box>
+
+
+            <br/>
+            <br/>
+
+            <Box display="flex" justifyContent="center" alignItems="center"  >
+                <TextField
+                    required
+                    inputProps={{min: 0, style: { textAlign: 'center' }}}
+                    variant = "outlined"
+                    label = "Eosinophils"
+                    helperText = "x10E9/L"
+                    placeholder = "Enter Eosinophil Count"
+                    color = "primary"
+                    onChange={handleChange('eosinophils')}
+                    defaultValue = {props.values.eosinophils}
                 />
             </Box>
 
@@ -121,15 +122,48 @@ export default function HDetails1(props) {
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Red Blood Cell Count"
-                    helperText = "x10E12/L"
-                    placeholder = "Enter Red Blood Cell Count"
+                    label = "Basophils"
+                    helperText = "x10E9/L"
+                    placeholder = "Enter Basophil Count"
                     color = "primary"
-                    onChange={handleChange('rbcc')}
-                    defaultValue = {props.values.rbcc}
+                    onChange={handleChange('basophils')}
+                    defaultValue = {props.values.basophils}
                 />
             </Box>
 
+            <br/>
+            <br/>
+
+            <Box display="flex" justifyContent="center" alignItems="center"  >
+                <TextField
+                    required
+                    inputProps={{min: 0, style: { textAlign: 'center' }}}
+                    variant = "outlined"
+                    label = "Granulocytes"
+                    helperText = "x10E9/L"
+                    placeholder = "Enter Granulocyte Count"
+                    color = "primary"
+                    onChange={handleChange('granulocytes')}
+                    defaultValue = {props.values.granulocytes}
+                />
+            </Box>
+
+            <br/>
+            <br/>
+
+            <Box display="flex" justifyContent="center" alignItems="center"  >
+                <TextField
+                    required
+                    inputProps={{min: 0, style: { textAlign: 'center' }}}
+                    variant = "outlined"
+                    label = "Nucleated RBC"
+                    helperText = "Early Stage Red Blood Cell\n/100 WBC"
+                    placeholder = "Enter Nucleated Red Blood Cell Count"
+                    color = "primary"
+                    onChange={handleChange('nucleatedrbc')}
+                    defaultValue = {props.values.nucleatedrbc}
+                />
+            </Box>
             <Box p="1rem" display="flex" justifyContent="center" alignItems="center"  >
 
                 <Button

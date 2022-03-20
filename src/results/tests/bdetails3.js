@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
-export default function HDetails1(props) {
+export default function BDetails3(props) {
     const next = (e) => {
         e.preventDefault(); 
         props.nextStep(0);
@@ -36,7 +36,7 @@ export default function HDetails1(props) {
             
             <Box>
                 <Typography variant="h3" color="primary" align="center">
-                    Enter Hematology Details
+                    Enter Biochemistry Details
                 </Typography>
             </Box>
             <Box>
@@ -44,6 +44,7 @@ export default function HDetails1(props) {
                     If value is not included in test, input -1
                 </Typography>
             </Box>
+
             <br/>
             <br/>
             <Box display="flex" justifyContent="center" alignItems="center"  >
@@ -51,82 +52,93 @@ export default function HDetails1(props) {
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Sedimentation_rate"
-                    helperText = "mm/hr"
-                    placeholder = "Enter Sedimentation Rate"
+                    label = "Alkaline Phosphatase"
+                    helperText = "U/L"
+                    placeholder = "Enter Alkaline Phosphatase Value"
                     color = "primary"
-                    onChange={handleChange('sedimentation_rate')}
-                    defaultValue = {props.values.sedimentation_rate}
+                    onChange={handleChange('alkaline')}
+                    defaultValue = {props.values.alkaline}
                 />
             </Box>
 
             <br/>
             <br/>
-            
             <Box display="flex" justifyContent="center" alignItems="center"  >
                 <TextField
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Hemoglobin"
-                    helperText = "g/L"
-                    placeholder = "Enter Hemoglobin"
+                    label = "Alanine Aminotransferase"
+                    helperText = "U/L"
+                    placeholder = "Enter Alanine Aminotransferase Value"
                     color = "primary"
-                    onChange={handleChange('hemoglobin')}
-                    defaultValue = {props.values.hemoglobin}
+                    onChange={handleChange('alanine')}
+                    defaultValue = {props.values.alanine}
+                />
+            </Box>
+
+            <br/>
+            <br/>
+            <Box display="flex" justifyContent="center" alignItems="center"  >
+                <TextField
+                    required
+                    inputProps={{min: 0, style: { textAlign: 'center' }}}
+                    variant = "outlined"
+                    label = "Gamma glut transferase"
+                    helperText = "U/L"
+                    placeholder = "Enter Gamma glut transferase Value"
+                    color = "primary"
+                    onChange={handleChange('gamma')}
+                    defaultValue = {props.values.gamma}
                 />
             </Box>
 
 
             <br/>
             <br/>
-
             <Box display="flex" justifyContent="center" alignItems="center"  >
                 <TextField
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Hematocrit"
-                    helperText = "L/L"
-                    placeholder = "Enter Hematocrit"
+                    label = "Lactate dehydrogenase"
+                    helperText = "U/L"
+                    placeholder = "Enter Lactate dehydrogenase Value"
                     color = "primary"
-                    onChange={handleChange('hematocrit')}
-                    defaultValue = {props.values.hematocrit}
-                />
-            </Box>
-
-
-            <br/>
-            <br/>
-
-            <Box display="flex" justifyContent="center" alignItems="center"  >
-                <TextField
-                    required
-                    inputProps={{min: 0, style: { textAlign: 'center' }}}
-                    variant = "outlined"
-                    label = "White Blood Cell Count"
-                    helperText = "x10E9/L"
-                    placeholder = "Enter White Blood Cell Count"
-                    color = "primary"
-                    onChange={handleChange('wbcc')}
-                    defaultValue = {props.values.wbcc}
+                    onChange={handleChange('lactate')}
+                    defaultValue = {props.values.lactate}
                 />
             </Box>
 
             <br/>
             <br/>
-
             <Box display="flex" justifyContent="center" alignItems="center"  >
                 <TextField
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Red Blood Cell Count"
-                    helperText = "x10E12/L"
-                    placeholder = "Enter Red Blood Cell Count"
+                    label = "Lipase"
+                    helperText = "U/L"
+                    placeholder = "Enter Lipase Value"
                     color = "primary"
-                    onChange={handleChange('rbcc')}
-                    defaultValue = {props.values.rbcc}
+                    onChange={handleChange('lipase')}
+                    defaultValue = {props.values.lipase}
+                />
+            </Box>
+
+            <br/>
+            <br/>
+            <Box display="flex" justifyContent="center" alignItems="center"  >
+                <TextField
+                    required
+                    inputProps={{min: 0, style: { textAlign: 'center' }}}
+                    variant = "outlined"
+                    label = "C Reactive Protein"
+                    helperText = "mg/L"
+                    placeholder = "Enter C Reactive Protein Value"
+                    color = "primary"
+                    onChange={handleChange('cr_protein')}
+                    defaultValue = {props.values.cr_protein}
                 />
             </Box>
 

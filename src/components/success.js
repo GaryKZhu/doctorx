@@ -15,6 +15,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText';
 
 export class Success extends Component {
+
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -26,6 +27,35 @@ export class Success extends Component {
     }
 
     render() {
+        const { values : { fname, lname, height, weight, age, gender, email } } = this.props;
+        var time = new Date(); 
+        time.setTime(Date.now()); 
+        console.log(height)
+        console.log(weight)
+        const data = {
+            "userid" : 0,
+            "firstname" : fname, 
+            "lastname" : lname,
+            "timestamp" : time.getTime(),
+            "email" : email,
+            "height" : parseInt(height),
+            "weight" : parseInt(weight),
+            "birthday" : age,
+            "gender" : gender
+        };
+        console.log(data)
+        const requestOptions = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            redirect: 'follow'
+        };
+
+
+        fetch("http://localhost:9000/api/v1/insertuser", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
         return (
             <MuiThemeProvider>
                 <Dialog open fullWidth={true} maxWidth = {'md'} scroll = "body">
@@ -49,6 +79,7 @@ export class Success extends Component {
 
                 <h3 align = "center"> Thank you for your submission! </h3>
                 <p align = "center"> We are processing your data and will send you an email when we are finished. </p>
+
                 </Dialog>
             </MuiThemeProvider>
         );

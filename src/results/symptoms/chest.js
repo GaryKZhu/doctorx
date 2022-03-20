@@ -69,7 +69,7 @@ export default function SelectSymptoms(props) {
           break; 
         }
       }
-      if(!found) props.setStep(46); 
+      if(!found) props.setStep(47); 
     }
   }
 
@@ -125,7 +125,6 @@ export default function SelectSymptoms(props) {
               }
               label="Chest Tightness" name="0"
             />
-
             <RadioGroup className={selected[0] == 0 ? classes.visuallyHidden : ''} row name="0">
               <FormControlLabel value="1" onChange={handleVectorChange(0, "chest")} control={<Radio checked={selected[0] == 0 ? false : (props.values.chest[0] == 1)} />} label="1" />
               <FormControlLabel value="2" onChange={handleVectorChange(0, "chest")} control={<Radio checked={selected[0] == 0 ? false : (props.values.chest[0] == 2)} />} label="2" />

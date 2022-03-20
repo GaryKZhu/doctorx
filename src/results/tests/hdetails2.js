@@ -46,17 +46,24 @@ export default function HDetails1(props) {
             </Box>
             <br/>
             <br/>
+
             <Box display="flex" justifyContent="center" alignItems="center"  >
                 <TextField
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Sedimentation_rate"
-                    helperText = "mm/hr"
-                    placeholder = "Enter Sedimentation Rate"
+                    label = "MCV"
+                    helperText = {
+                        <>
+                          Mean Cell Volume
+                          <br />
+                          fl
+                        </>
+                    }
+                    placeholder = "Enter MCV"
                     color = "primary"
-                    onChange={handleChange('sedimentation_rate')}
-                    defaultValue = {props.values.sedimentation_rate}
+                    onChange={handleChange('mcv')}
+                    defaultValue = {props.values.mcv}
                 />
             </Box>
 
@@ -68,12 +75,18 @@ export default function HDetails1(props) {
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Hemoglobin"
-                    helperText = "g/L"
-                    placeholder = "Enter Hemoglobin"
+                    label = "MCH"
+                    helperText = {
+                        <>
+                          Average Hemoglobin per Cell
+                          <br />
+                          pg
+                        </>
+                    }
+                    placeholder = "Enter MCH"
                     color = "primary"
-                    onChange={handleChange('hemoglobin')}
-                    defaultValue = {props.values.hemoglobin}
+                    onChange={handleChange('mch')}
+                    defaultValue = {props.values.mch}
                 />
             </Box>
 
@@ -86,12 +99,18 @@ export default function HDetails1(props) {
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "Hematocrit"
-                    helperText = "L/L"
-                    placeholder = "Enter Hematocrit"
+                    label = "MCHC"
+                    helperText = {
+                        <>
+                          Average Concentration of Hemoglobin per Cell
+                          <br />
+                          g/L
+                        </>
+                    }
+                    placeholder = "Enter MCHC"
                     color = "primary"
-                    onChange={handleChange('hematocrit')}
-                    defaultValue = {props.values.hematocrit}
+                    onChange={handleChange('mchc')}
+                    defaultValue = {props.values.mchc}
                 />
             </Box>
 
@@ -104,29 +123,35 @@ export default function HDetails1(props) {
                     required
                     inputProps={{min: 0, style: { textAlign: 'center' }}}
                     variant = "outlined"
-                    label = "White Blood Cell Count"
+                    label = "RDW"
+                    helperText = {
+                        <>
+                          Range of Red Blood Cell
+                          <br />
+                          %CV
+                        </>
+                    }
+                    placeholder = "Enter RDW"
+                    color = "primary"
+                    onChange={handleChange('rdw')}
+                    defaultValue = {props.values.rdw}
+                />
+            </Box>
+
+            <br/>
+            <br/>
+
+            <Box display="flex" justifyContent="center" alignItems="center"  >
+                <TextField
+                    required
+                    inputProps={{min: 0, style: { textAlign: 'center' }}}
+                    variant = "outlined"
+                    label = "Platelets"
                     helperText = "x10E9/L"
-                    placeholder = "Enter White Blood Cell Count"
+                    placeholder = "Enter Platelet Count"
                     color = "primary"
-                    onChange={handleChange('wbcc')}
-                    defaultValue = {props.values.wbcc}
-                />
-            </Box>
-
-            <br/>
-            <br/>
-
-            <Box display="flex" justifyContent="center" alignItems="center"  >
-                <TextField
-                    required
-                    inputProps={{min: 0, style: { textAlign: 'center' }}}
-                    variant = "outlined"
-                    label = "Red Blood Cell Count"
-                    helperText = "x10E12/L"
-                    placeholder = "Enter Red Blood Cell Count"
-                    color = "primary"
-                    onChange={handleChange('rbcc')}
-                    defaultValue = {props.values.rbcc}
+                    onChange={handleChange('platelets')}
+                    defaultValue = {props.values.platelets}
                 />
             </Box>
 

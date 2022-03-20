@@ -224,8 +224,9 @@ export default function EnhancedTable(props)  {
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-    const res = useFetch('http://10.0.0.51:9000/api/v1/details?reportid='+resultid, {});
+    const res = useFetch('http://localhost:9000/api/v1/details?reportid='+resultid, {});
     const data = res.response; 
+    console.log(res)
     for(let i = 0; i<data.length; i++) {
       rows.push(createData(data[i].id, data[i].name, data[i].type, data[i].value, data[i].range, data[i].units)); 
     }

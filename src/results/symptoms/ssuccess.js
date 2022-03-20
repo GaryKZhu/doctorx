@@ -58,27 +58,34 @@ export default function SelectSymptoms(props) {
     reset('lungs');
     reset('abdomen');
     reset('chest');
-    reset('limbs')
+    reset('limbs');
+    reset('ometrics');
     reset('hselected');
     reset('luselected');
     reset('aselected');
     reset('cselected');
-    reset('liselected'); 
+    reset('liselected');
+    reset('oselected'); 
     reset('comments');
     reset('userid')
     props.setStep(1); 
   }
-
+  console.log(values.ometrics)
+  console.log(values.ometrics.toString())
   var time = new Date(); 
   time.setTime(Date.now()); 
+  console.log(time.getTime());
   const data = {
     "Userid" : values.userid,
     "Collection_date": time.toString(),
+    "Timestamp": time.getTime(), 
     "Head" : values.head.toString(),
     "Lung" : values.lungs.toString(),
     "Chest" : values.chest.toString(),
     "Abdomen" : values.abdomen.toString(),
-    "Limbs" :values.limbs.toString()
+    "Limbs" :values.limbs.toString(),
+    "Other" : values.ometrics.toString(),
+    "Comment": values.comments.toString()
   };
   
   const requestOptions = {
@@ -87,7 +94,7 @@ export default function SelectSymptoms(props) {
       redirect: 'follow'
   };
 
-  fetch("http://10.0.0.51:9000/api/v1/symptoms", requestOptions)
+  fetch("http://localhost:9000/api/v1/symptoms", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));

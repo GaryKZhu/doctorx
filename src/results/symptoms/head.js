@@ -69,7 +69,7 @@ export default function SelectSymptoms(props) {
           break; 
         }
       }
-      if(!found) props.setStep(46); 
+      if(!found) props.setStep(47); 
     }
   }
 

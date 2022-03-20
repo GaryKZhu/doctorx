@@ -14,16 +14,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel'
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import { useFetch } from '../FetchData'; 
 
-
-
-export default function HDetails1(props) {
-    const { handleChange } = props;
+export default function RDetails(props) {
+    const { handleChange, setStep } = props;
     var { values : { userid, date, organization, section, status } } = props;
 
     const next = (e) => {
         e.preventDefault(); 
-        props.nextStep(0);
+        if(section == "Hematology") { setStep(21); }
+        else if(section == "Urine") { setStep(61); }
+        else if(section == "Biochemistry") { setStep(51); }
     }
 
     const back = (e) => {
@@ -31,17 +32,8 @@ export default function HDetails1(props) {
         props.prevStep();
     }
 
-    const users = [
-        {
-            "name": "Jane",
-            "userid": 1,
-        },
-
-        {
-            "name": "John",
-            "userid": 2,
-        },
-    ]; 
+    var res = useFetch('http://localhost:9000/api/v1/user', {});
+    var users = res.response
 
     return (
         <MuiThemeProvider>
@@ -72,11 +64,12 @@ export default function HDetails1(props) {
                         onChange = {handleChange('userid')} 
                         defaultValue = {userid}
                     >
-                        {users.map((row, index) => {
-                            return (
-                                <MenuItem key={index} value={row.userid}>{row.name}</MenuItem>
-                            ); 
-                        })}
+                    { users.length > 0 ? 
+                        users.map((row, index) => {
+                        return (
+                            <MenuItem key={index} value={row.userid}>{row.name}</MenuItem>
+                        ); 
+                    }) : <MenuItem></MenuItem> }
                     </Select>
                 </FormControl>
             </Box>
@@ -91,6 +84,7 @@ export default function HDetails1(props) {
                     variant = "outlined"
                     label = "Date"
                     placeholder = "Enter Date of Report"
+                    helperText="yyyy-mm-dd hh:mm"
                     color = "primary"
                     onChange = {handleChange('date')}
                     defaultValue = {date}
@@ -125,6 +119,7 @@ export default function HDetails1(props) {
                     >
                         <MenuItem value = {"Hematology"}> Hematology </MenuItem>
                         <MenuItem value = {"Urine"}> Urine </MenuItem>
+                        <MenuItem value = {"Biochemistry"}> Biochemistry </MenuItem>
                     </Select>
                 </FormControl> 
             </Box>

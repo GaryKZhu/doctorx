@@ -94,8 +94,9 @@ export class UserMedicalInfo extends Component {
                         required
                         inputProps={{min: 0, style: { textAlign: 'center' }}}
                         variant = "outlined"
-                        placeholder = "Enter Your Age"
-                        label = "Age"
+                        placeholder = "Enter Your Birthday"
+                        helperText="yyyy-mm-dd"
+                        label = "Birthday"
                         color = "primary"
                         onChange = {handleChange('age')}
                         defaultValue = {values.age}

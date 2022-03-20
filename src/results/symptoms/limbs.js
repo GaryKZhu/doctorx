@@ -69,7 +69,7 @@ export default function SelectSymptoms(props) {
           break; 
         }
       }
-      if(!found) props.setStep(46); 
+      if(!found) props.setStep(47); 
     }
   }
 
@@ -158,7 +158,7 @@ export default function SelectSymptoms(props) {
               control={
                 <Checkbox checked={selected[2]} onChange={handleSelected} />
               }
-              label="Thigh Pain" name="2"
+              label="Arm Itch" name="2"
             />
             <RadioGroup className={selected[2] == 0 ? classes.visuallyHidden : ''} row name="2">
               <FormControlLabel value="1" onChange={handleVectorChange(2, "limbs")} control={<Radio checked={selected[2] == 0 ? false : (props.values.limbs[2] == 1)} />} label="1" />
@@ -173,7 +173,7 @@ export default function SelectSymptoms(props) {
               control={
                 <Checkbox checked={selected[3]} onChange={handleSelected}/>
               }
-              label="Shoulder Pain" name="3"
+              label="Leg Itch" name="3"
             />
             <RadioGroup className={selected[3] == 0 ? classes.visuallyHidden : ''} row name="3">
               <FormControlLabel value="1" onChange={handleVectorChange(3, "limbs")} control={<Radio checked={selected[3] == 0 ? false : (props.values.limbs[3] == 1)} />} label="1" />
@@ -183,8 +183,41 @@ export default function SelectSymptoms(props) {
               <FormControlLabel value="5" onChange={handleVectorChange(3, "limbs")} control={<Radio checked={selected[3] == 0 ? false : (props.values.limbs[3] == 5)} />}  label="5" />
             </RadioGroup>
         </FormGroup>
+        <FormGroup row>
+            <FormControlLabel
+              control={
+                <Checkbox checked={selected[4]} onChange={handleSelected}/>
+              }
+              label="Chills" name="4"
+            />
+            <RadioGroup className={selected[4] == 0 ? classes.visuallyHidden : ''} row name="4">
+              <FormControlLabel value="1" onChange={handleVectorChange(4, "limbs")} control={<Radio checked={selected[4] == 0 ? false : (props.values.limbs[4] == 1)} />} label="1" />
+              <FormControlLabel value="2" onChange={handleVectorChange(4, "limbs")} control={<Radio checked={selected[4] == 0 ? false : (props.values.limbs[4] == 2)} />} label="2" />
+              <FormControlLabel value="3" onChange={handleVectorChange(4, "limbs")} control={<Radio checked={selected[4] == 0 ? false : (props.values.limbs[4] == 3)} />}  label="3" />
+              <FormControlLabel value="4" onChange={handleVectorChange(4, "limbs")} control={<Radio checked={selected[4] == 0 ? false : (props.values.limbs[4] == 4)} />}  label="4" />
+              <FormControlLabel value="5" onChange={handleVectorChange(4, "limbs")} control={<Radio checked={selected[4] == 0 ? false : (props.values.limbs[4] == 5)} />}  label="5" />
+            </RadioGroup>
+        </FormGroup>
+        <FormGroup row>
+            <FormControlLabel
+              control={
+                <Checkbox checked={selected[5]} onChange={handleSelected}/>
+              }
+              label="Dry Skin" name="5"
+            />
+            <RadioGroup className={selected[5] == 0 ? classes.visuallyHidden : ''} row name="5">
+              <FormControlLabel value="1" onChange={handleVectorChange(5, "lungs")} control={<Radio checked={selected[5] == 0 ? false : (props.values.lungs[5] == 1)} />} label="1" />
+              <FormControlLabel value="2" onChange={handleVectorChange(5, "lungs")} control={<Radio checked={selected[5] == 0 ? false : (props.values.lungs[5] == 2)} />} label="2" />
+              <FormControlLabel value="3" onChange={handleVectorChange(5, "lungs")} control={<Radio checked={selected[5] == 0 ? false : (props.values.lungs[5] == 3)} />}  label="3" />
+              <FormControlLabel value="4" onChange={handleVectorChange(5, "lungs")} control={<Radio checked={selected[5] == 0 ? false : (props.values.lungs[5] == 4)} />}  label="4" />
+              <FormControlLabel value="5" onChange={handleVectorChange(5, "lungs")} control={<Radio checked={selected[5] == 0 ? false : (props.values.lungs[5] == 5)} />}  label="5" />
+            </RadioGroup>
+        </FormGroup>
         </FormControl>
       </Box>
+      <br/>
+      <br/>
+      <br/>
       <Box p="1rem" display="flex" justifyContent="center" alignItems="center" >
         <Button
             variant = "contained"

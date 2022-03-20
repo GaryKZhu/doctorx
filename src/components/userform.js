@@ -10,7 +10,7 @@ export class UserForm extends Component {
     lname: 'Doe',
     height: 0,
     weight: 0,
-    age: 0,
+    age: "2000-01-31",
     email: 'example@example.com',
     gender: 'M',
   };
@@ -72,7 +72,9 @@ export class UserForm extends Component {
 
       case 4:
         return (
-          <Success/>
+          <Success
+            values={values}
+          />
         );
     }
     

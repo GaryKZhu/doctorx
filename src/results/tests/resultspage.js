@@ -262,31 +262,10 @@ export default function ResultsPage(props) {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  var res = useFetch('http://10.0.0.51:9000/api/v1/reports', {});
-  var data = res.response; 
-  const users = [
-    {
-        "name": "Jane",
-        "userid": 1,
-    },
-
-    {
-        "name": "John",
-        "userid": 2,
-    },
-  ]; 
-  const [userid, setUserID] = React.useState(users[0].userid); 
-  for(let i = 0; i<data.length; i++) {
-    if(data[i].userid == userid) rows.push(createData(data[i].reportid, data[i].collection_date, data[i].section, data[i].organization, data[i].status)); 
-  }
-
-  useEffect(() => {
-    rows = [];
-    for(let i = 0; i<data.length; i++) {
-      if(data[i].userid == userid) rows.push(createData(data[i].reportid, data[i].collection_date, data[i].section, data[i].organization, data[i].status)); 
-    }
-    console.log(rows); 
-  }, [userid]);
+  var res = useFetch('http://localhost:9000/api/v1/reports', {});
+  var data = res.response
+  res = useFetch('http://localhost:9000/api/v1/user', {});
+  var users = res.response
 
   const HandleChange = (e) => {
     setUserID(e.target.value);
@@ -351,6 +330,20 @@ export default function ResultsPage(props) {
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
+  const [userid, setUserID] = React.useState(users.length > 0 ? users[0].userid : 0);
+
+  for(let i = 0; i<data.length; i++) {
+    if(data[i].userid == userid) rows.push(createData(data[i].reportid, data[i].collection_date, data[i].section, data[i].organization, data[i].status)); 
+  }
+
+  useEffect(() => {
+    rows = [];
+    for(let i = 0; i<data.length; i++) {
+      if(data[i].userid == userid) rows.push(createData(data[i].reportid, data[i].collection_date, data[i].section, data[i].organization, data[i].status)); 
+    }
+    console.log(rows); 
+  }, [userid]);
+  
   return (
     <div classtype={classes.root}>
       <br/>
@@ -369,11 +362,12 @@ export default function ResultsPage(props) {
                 onChange = {HandleChange} 
                 defaultValue = {userid}
             >
-                {users.map((user, index) => {
-                    return (
-                        <MenuItem key={index} value={user.userid}>{user.name}</MenuItem>
-                    ); 
-                })}
+              { users.length > 0 ? 
+                users.map((row, index) => {
+                  return (
+                      <MenuItem key={index} value={row.userid}>{row.name}</MenuItem>
+                  ); 
+              }) : <MenuItem></MenuItem> }
             </Select>
         </FormControl>
       </Box>
@@ -400,7 +394,7 @@ export default function ResultsPage(props) {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.date);
+                  const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
@@ -409,7 +403,7 @@ export default function ResultsPage(props) {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.date}
+                      key={row.id}
                       selected={isItemSelected}
                     >
                       <TableCell style={{width: 150}}>
@@ -428,7 +422,7 @@ export default function ResultsPage(props) {
                   );
                 })}
               {emptyRows > 0 && (
-                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                <TableRow style={{ height: (dense ? 10 : 20) * emptyRows }}>
                   <TableCell colSpan={6} />
                 </TableRow>
               )}
